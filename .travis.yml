@@ -1,12 +1,17 @@
-os:
-  - osx
-language: generic
-sudo: required
-dist: trusty
-osx_image: xcode10
+matrix:
+  include:
+  - os: linux
+    dist: trusty
+    sudo: required
+    env: SWIFT_SNAPSHOT=4.2.1
+  - os: osx
+    osx_image: xcode10.1
+    sudo: required
+
 script:
   - swift build
   - swift test
+
 notifications:
   email:
     on_success: never
