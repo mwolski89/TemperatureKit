@@ -12,6 +12,6 @@ struct Temperature: CustomStringConvertible {
     var value: Float
     
     var description: String {
-        return "\(value) \(unit)"
+        return "\(value) \(unit.rawValue)"
     }
 }
