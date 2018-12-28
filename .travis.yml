@@ -1,12 +1,13 @@
+env: 
+  global:
+    - SWIFT_BRANCH=swift-4.2-branch
+    - SWIFT_VERSION=swift-4.2-DEVELOPMENT-SNAPSHOT-2018-05-30-a
+      
 matrix:
   include:
     - os: linux
       dist: trusty
       sudo: required
-      env: 
-        global:
-          - SWIFT_BRANCH=swift-4.2-branch
-          - SWIFT_VERSION=swift-4.2-DEVELOPMENT-SNAPSHOT-2018-05-30-a
       install:
         - sudo apt-get install clang libicu-dev
         - mkdir swift
