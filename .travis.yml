@@ -1,20 +1,31 @@
 matrix:
   include:
-  - os: linux
-    dist: trusty
-    sudo: required
-    env: SWIFT_SNAPSHOT=4.2.1
-  - os: osx
-    osx_image: xcode10.1
-    sudo: required
-
-script:
-  - swift build
-  - swift test
+    - os: linux
+      dist: trusty
+      sudo: required
+      env: 
+        global:
+          - SWIFT_BRANCH=swift-4.2-branch
+          - SWIFT_VERSION=swift-4.2-DEVELOPMENT-SNAPSHOT-2018-05-30-a
+      install:
+       - sudo apt-get install clang libicu-dev
+        - mkdir swift
+        - curl https://swift.org/builds/$SWIFT_BRANCH/ubuntu1404/$SWIFT_VERSION/$SWIFT_VERSION-ubuntu14.04.tar.gz -s | tar xz -C swift &> /dev/null
+        - export PATH="$(pwd)/swift/$SWIFT_VERSION-ubuntu14.04/usr/bin:$PATH"
+        script:
+          - swift build
+          - swift test
+    - os: osx
+      osx_image: xcode10.1
+      sudo: required
+      script:
+        - swift build
+        - swift test
 
 notifications:
   email:
     on_success: never
     on_failure: change
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
