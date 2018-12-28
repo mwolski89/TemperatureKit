@@ -1,3 +1,5 @@
 # TemperatureKit
 
-A description of this package.
+TemperatureKit helps you calculating temperatures.
+
+...in progress...
