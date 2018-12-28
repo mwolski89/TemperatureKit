@@ -8,13 +8,13 @@ matrix:
           - SWIFT_BRANCH=swift-4.2-branch
           - SWIFT_VERSION=swift-4.2-DEVELOPMENT-SNAPSHOT-2018-05-30-a
       install:
-       - sudo apt-get install clang libicu-dev
+        - sudo apt-get install clang libicu-dev
         - mkdir swift
         - curl https://swift.org/builds/$SWIFT_BRANCH/ubuntu1404/$SWIFT_VERSION/$SWIFT_VERSION-ubuntu14.04.tar.gz -s | tar xz -C swift &> /dev/null
         - export PATH="$(pwd)/swift/$SWIFT_VERSION-ubuntu14.04/usr/bin:$PATH"
-        script:
-          - swift build
-          - swift test
+      script:
+        - swift build
+        - swift test
     - os: osx
       osx_image: xcode10.1
       sudo: required
