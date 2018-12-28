@@ -13,22 +13,22 @@ class FahrenheitCalculation: XCTestCase {
     func test_celsiusToFahrenheit() {
         var celsius = Temperature(unit: .celsius, value: 1.0)
         
-        let fahrenheit = celsius.toFahrenheit()
+        let fahrenheit = celsius.fahrenheitValue()
         assert(fahrenheit == 33.8)
         
         celsius.value = 30.0
-        let fahrenheitAdvanced = celsius.toFahrenheit()
+        let fahrenheitAdvanced = celsius.fahrenheitValue()
         assert(fahrenheitAdvanced == 86.0)
     }
     
     func test_kelvinToFahrenheit() {
         var kelvin = Temperature(unit: .kelvin, value: 1.0)
         
-        let fahrenheit = kelvin.toFahrenheit()
+        let fahrenheit = kelvin.fahrenheitValue()
         assert(fahrenheit == -457.869965)
         
         kelvin.value = 5
-        let fahrenheitAdvanced = kelvin.toFahrenheit()
+        let fahrenheitAdvanced = kelvin.fahrenheitValue()
         assert(fahrenheitAdvanced == -450.669983)
     }
 

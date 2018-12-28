@@ -13,7 +13,7 @@ extension Temperature {
      
      - Returns: The calculated degree in Kelvin.
      */
-    public func toKelvin() -> Float  {
+    public func kelvinValue() -> Float  {
         switch self.unit {
         case .celsius:
             return self.celsius2Kelvin()
@@ -29,7 +29,7 @@ extension Temperature {
      
      - Returns: The calculated degree in Fahrenheit.
      */
-    public func toFahrenheit() -> Float  {
+    public func fahrenheitValue() -> Float  {
         switch self.unit {
         case .celsius:
             return self.celsius2Fahrenheit()
@@ -46,7 +46,7 @@ extension Temperature {
     
      - Returns: The calculated degree in Celsius.
      */
-    public func toCelsius() -> Float {
+    public func celsiusValue() -> Float {
         switch self.unit {
         case .fahrenheit:
             return self.fahrenheit2Celsius()
@@ -55,32 +55,6 @@ extension Temperature {
         default:
             fatalError("invalid unit")
         }
-    }
-    
-    fileprivate func celsius2Fahrenheit() -> Float {
-        return (self.value * 9/5) + 32
-    }
-    
-    fileprivate func celsius2Kelvin() -> Float {
-        return self.value + 273.15
-    }
-    
-    
-    fileprivate func fahrenheit2Celsius() -> Float {
-        return (self.value - 32) / 1.8
-    }
-    
-    fileprivate func fahrenheit2Kelvin() -> Float {
-        return ((self.value - 32) * 5/9) + 273.15
-    }
-    
-    
-    fileprivate func kelvin2Celsius() -> Float {
-        return self.value - 273.15
-    }
-    
-    fileprivate func kelvin2Fahrenheit() -> Float {
-        return (self.value - 273.15) * 9/5 + 32
     }
     
 }
