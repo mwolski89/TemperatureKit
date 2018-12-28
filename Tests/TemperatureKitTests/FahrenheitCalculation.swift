@@ -31,5 +31,12 @@ class FahrenheitCalculation: XCTestCase {
         let fahrenheitAdvanced = kelvin.fahrenheitValue()
         assert(fahrenheitAdvanced == -450.669983)
     }
+    
+}
 
+extension FahrenheitCalculation {
+    static var allTests = [
+        ("test_celsiusToFahrenheit", test_celsiusToFahrenheit),
+        ("test_kelvinToFahrenheit", test_kelvinToFahrenheit),
+    ]
 }

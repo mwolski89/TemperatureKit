@@ -33,3 +33,10 @@ class KelvinCalculation: XCTestCase {
     }
 
 }
+
+extension KelvinCalculation {
+    static var allTests = [
+        ("test_celsiusToKelvin", test_celsiusToKelvin),
+        ("test_fahrenheitToKelvin", test_fahrenheitToKelvin),
+    ]
+}

@@ -33,3 +33,10 @@ class CelsiusCalculationTests: XCTestCase {
     }
 
 }
+
+extension CelsiusCalculationTests {
+    static var allTests = [
+        ("test_fahrenheit2Celcsius", test_fahrenheit2Celcsius),
+        ("test_kelvin2Celcsius", test_kelvin2Celcsius),
+    ]
+}

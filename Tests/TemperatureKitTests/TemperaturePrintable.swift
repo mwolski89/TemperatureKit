@@ -24,3 +24,9 @@ class TemperaturePrintable: XCTestCase {
     }
 
 }
+
+extension TemperaturePrintable {
+    static var allTests = [
+        ("test_celsiusPrintable", test_celsiusPrintable),
+    ]
+}
