@@ -6,16 +6,10 @@ env:
 matrix:
   include:
     - os: linux
-      dist: trusty
+      dist: bionic
+      service: docker
       sudo: required
-      install:
-        - sudo apt-get install clang libicu-dev
-        - mkdir swift
-        - curl https://swift.org/builds/$SWIFT_BRANCH/ubuntu1804/$SWIFT_VERSION/$SWIFT_VERSION-ubuntu18.04.tar.gz -s | tar xz -C swift &> /dev/null
-        - export PATH="$(pwd)/swift/$SWIFT_VERSION-ubuntu18.04/usr/bin:$PATH"
-      script:
-        - swift build
-        - swift test
+      env: DOCKER_IMAGE=swift:5.0.1 SWIFT_SNAPSHOT=5.0.1
     - os: osx
       osx_image: xcode10.2
       sudo: required
